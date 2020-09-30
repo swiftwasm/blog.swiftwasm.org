@@ -13,6 +13,8 @@ jobs:
 
       - run: swift run SwiftWasmBlog
 
+      - run: mv CNAME Output
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

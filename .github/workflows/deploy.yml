@@ -11,9 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - run: brew install publish
-
-      - run: publish generate
+      - run: swift run SwiftWasmBlog
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

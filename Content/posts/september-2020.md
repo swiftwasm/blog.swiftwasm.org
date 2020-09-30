@@ -5,10 +5,10 @@ description: An update on what happened in the SwiftWasm ecosystem during Septem
 ---
 # September 2020 Update
 
-The amount of work happening in the SwiftWasm ecosystem is growing, so we decided to start
-publishing blog updates to give you an overview of what happened recently. This update for
-September is big enough to be split into different sections for each area of our work, so let's
-get started. 🙂
+Welcome to the SwiftWasm blog! The amount of work happening in [the SwiftWasm
+ecosystem](https://github.com/swiftwasm) is growing, so we decided to start publishing blog updates
+to give you an overview of what happened recently. This update for September is big enough to be
+split into different sections for each area of our work, so let's get started. 🙂
 
 ## Libraries
 

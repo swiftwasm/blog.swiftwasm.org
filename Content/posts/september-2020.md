@@ -72,7 +72,7 @@ new `carton bundle` command that produces a directory with optimized build outpu
 deployment on a CDN or any other server. Notably, both `carton bundle` and `carton dev` support
 [SwiftPM package
 resources](https://github.com/apple/swift-evolution/blob/master/proposals/0271-package-manager-resources.md),
-allowing you to include additional static content to your SwiftWasm apps. These could be styles,
+allowing you to include additional static content in your SwiftWasm apps. These could be styles,
 scripts, images, fonts, or whatever other data you'd like to ship with your app.
 
 This version of `carton` also ships with the latest version of

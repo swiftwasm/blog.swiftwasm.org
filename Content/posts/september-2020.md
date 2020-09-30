@@ -76,39 +76,38 @@ allowing you to include additional static content in your SwiftWasm apps. These 
 scripts, images, fonts, or whatever other data you'd like to ship with your app.
 
 This version of `carton` also ships with the latest version of
-[wasmer.js](https://github.com/wasmerio/wasmer-js/), which is one of our dependencies. This update
-brings compatibility of SwiftWasm apps with Safari 14 that was released recently.
+[wasmer.js](https://github.com/wasmerio/wasmer-js/), which fixes compatibility with 
+recently released Safari 14.
 
 ## Toolchain/SDK work
 
-The upstream Swift toolchain has switched to use [LLVM](http://llvm.org) 11 in the `main` branch,
-which caused a substantial amount of conflicts in our forked repositories. We've spent most of
-our time in September on resolving the fallout from that and making sure everything builds properly.
+The upstream Swift toolchain has switched to [LLVM](http://llvm.org) 11 in the `main` branch,
+which caused a substantial amount of conflicts in our forked repositories. Resolving the conflicts
+and making sure everything builds properly consumed a lot of our time in September.
 You could've noticed that the previously steady stream of nighly development snapshots stalled for
 most of September, but it resumed starting with `wasm-DEVELOPMENT-SNAPSHOT-2020-09-20-a`.
 
 As for the 5.3 branch, with the upstream Swift 5.3.0 release now generally available, we're
-currently preparing a stable SwiftWasm 5.3.0 release. It is based off upstream 5.3.0
+now preparing a stable SwiftWasm 5.3.0 release. It is based off upstream 5.3.0
 with our patches applied to the toolchain and the SDK. [We've created a
 checklist](https://github.com/swiftwasm/swift/issues/1759) that allows us to track the
 progress of this effort.
 
 One of the issues we wanted to resolve before tagging SwiftWasm 5.3.0 is the inconsistency between
-WASI and Glibc APIs. While there's a subset of these APIs that looks and works the same, there are a
-lot of differences that our users should be aware of. Because of this, in subsequent snapshots our
-users need to use `import WASILibc` instead of `import Glibc` if they need to access to libc on the
-WASI platform. This has already landed in the `swiftwasm-release/5.3` branch with
-[swiftwasm/swift#1773](https://github.com/swiftwasm/swift/pull/1773) and is available
-in `wasm-5.3-SNAPSHOT-2020-09-23-a` or later. It was also implemented in the main `swiftwasm` branch
-in [swiftwasm/swift#1832](https://github.com/swiftwasm/swift/pull/1832), all thanks to the amazing
-work by [Yuta Saito](https://github.com/sponsors/kateinoigakukun).
+WASI and Glibc APIs. While parts of those look and works the same, the rest are significantly 
+different. Because of this, in subsequent snapshots our users need to use `import WASILibc` instead
+of `import Glibc` if they need to access to libc on the WASI platform. This has already landed in
+the `swiftwasm-release/5.3` branch with [swiftwasm/swift#1773](https://github.com/swiftwasm/swift/pull/1773)
+and is available in `wasm-5.3-SNAPSHOT-2020-09-23-a` or later. It was also implemented in the 
+main `swiftwasm` branch in [swiftwasm/swift#1832](https://github.com/swiftwasm/swift/pull/1832), all
+thanks to the amazing work by [Yuta Saito](https://github.com/sponsors/kateinoigakukun).
 
 ## Upstream PRs
 
-The divergence between the SwiftWasm toolchain and SDKs is still significant and causes regular
-conflicts that we have to resolve manually. We're working on making our changes available upstream,
-but this takes a lot of time, as upstream toolchain and SDK PRs need high level of polish to be
-accepted. Here's a list of PRs that had some progress in September:
+The divergence between the SwiftWasm toolchain/SDKs and their upstream version is still significant
+and causes regular conflicts that we have to resolve manually. We're working on making our changes
+available upstream, but this takes a lot of time, as upstream toolchain and SDK PRs need high level of
+polish to be accepted. Here's a list of PRs that had some progress in September:
 
 ### Foundation
 
@@ -135,9 +134,9 @@ accepted. Here's a list of PRs that had some progress in September:
 
 We hope you can contribute to the SwiftWasm ecosystem, either to any of the projects listed above,
 or with your own libraries and apps that you built. We'd be very happy to feature your open-source
-work in our next update! Our whole [swiftwasm.org](https://swiftwasm.org) website including this
-blog [is open-source](https://github.com/swiftwasm/swiftwasm.org), so please feel free to open
-an issue or a pull request with a link to your work related to SwiftWasm.
+work in our next update! Our [`swiftwasm.org` website](https://github.com/swiftwasm/swiftwasm.org)
+and [this blog](https://github.com/swiftwasm/blog.swiftwasm.org) are open-source, so please feel
+free to open an issue or a pull request with a link to your work related to SwiftWasm.
 
 A lot of the progress wouldn't be possible without payments from our GitHub Sponsors. Their
 contribution is deeply appreciated and allows us to spend more time on SwiftWasm projects. You can

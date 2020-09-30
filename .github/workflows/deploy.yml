@@ -1,0 +1,22 @@
+name: Deployment
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  gh-pages:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - run: brew install publish
+
+      - run: publish generate
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./Output

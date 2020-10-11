@@ -2,7 +2,7 @@
 date: 2020-10-14 14:34
 description: An update on what happened in the SwiftWasm ecosystem during the first half of October 2020.
 ---
-# SwiftWasm Update #2
+# What's new in SwiftWasm #2
 
 Welcome to the second SwiftWasm update! To make the updates flow steady, we're trying to publish
 them fortnightly now. Let us know what you think of this new cadence. And here's a gentle reminder

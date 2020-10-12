@@ -58,8 +58,7 @@ to be seen how well that would work in practice.
 
 Tokamak didn't see major updates recently, but we've received some important bug reports during
 the last few weeks. Firstly, there's [an edge case with `Picker`
-views
-view](https://github.com/TokamakUI/Tokamak/issues/285) that use `\.self` as an identifier keypath.
+views](https://github.com/TokamakUI/Tokamak/issues/285) that use `\.self` as an identifier keypath.
 Secondly, [`Toggle` binding is not reset](https://github.com/TokamakUI/Tokamak/issues/287) after its
 value changes outside of the view. Many thanks to [@rbartolome](https://github.com/rbartolome) for
 the extensive testing he's given and for reporting these issues!

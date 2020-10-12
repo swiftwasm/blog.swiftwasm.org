@@ -14,7 +14,7 @@ repository](https://github.com/swiftwasm/blog.swiftwasm.org).
 
 We would like to welcome [@yonihemi](https://github.com/yonihemi) to the SwiftWasm team who joined
 us in the beginning of October. After the previous contributions he made to
-[`carton`][https://carton.dev] it made perfect sense to expand our team. As always, we invite
+[`carton`](https://carton.dev) it made perfect sense to expand our team. As always, we invite
 everyone to contribute to any of our repositories, and it doesn't require much prior experience with
 SwiftWasm if any at all. Bug fixes, feature additions, improved documentation and related changes
 are very much appreciated and allow our ecosystem to grow even more!
@@ -49,7 +49,7 @@ respectively in [#88](https://github.com/swiftwasm/JavaScriptKit/pull/88).
 Wasm function return type support in Safari. The reason for it is that [Safari is the only major
 browser](https://webassembly.org/roadmap/) that doesn't support
 [Wasm `i64` to `BigInt` conversion](https://github.com/WebAssembly/JS-BigInt-integration).
-Unfortunately, there is a plenty of APIs that do require this conversion to work, and it's unclear
+Unfortunately, there are many APIs that require this conversion to work, and it's unclear
 yet if this can be polyfilled on the JavaScript side at all. Currently it looks like we need to
 apply some transformations to binaries produced by SwiftWasm to resolve this issue, but it remains
 to be seen how well that would work in practice.
@@ -57,7 +57,8 @@ to be seen how well that would work in practice.
 ## Tokamak
 
 Tokamak didn't see major updates recently, but we've received some important bug reports during
-the last few weeks. Firstly, there's [an edge case with the `Picker`
+the last few weeks. Firstly, there's [an edge case with `Picker`
+views
 view](https://github.com/TokamakUI/Tokamak/issues/285) that use `\.self` as an identifier keypath.
 Secondly, [`Toggle` binding is not reset](https://github.com/TokamakUI/Tokamak/issues/287) after its
 value changes outside of the view. Many thanks to [@rbartolome](https://github.com/rbartolome) for

@@ -34,7 +34,7 @@ SwiftPM. This was obviously a very ugly hack, but the biggest downside of that a
 you couldn't depend on any package that had a semantic version dependency on JavaScriptKit in
 upstream Swift toolchains. That meant that libraries like [Tokamak](https://tokamak.dev) could not
 be built for macOS or Linux. And while the WebAssembly DOM renderer in Tokamak is the most useful
-module right now, this prevented us from working static HTML rendering in Tokamak on macOS and
+module right now, this prevented static HTML rendering from working on macOS and
 Linux.
 
 Another issue we had with JavaScriptKit is [the naming of `JSValueConstructible` and

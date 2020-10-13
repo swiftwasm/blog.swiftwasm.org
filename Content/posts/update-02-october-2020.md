@@ -22,7 +22,7 @@ are very much appreciated and allow our ecosystem to grow even more!
 ## JavaScriptKit
 
 [JavaScriptKit](https://github.com/swiftwasm/JavaScriptKit) had a few important updates in October
-so far. Most importantly, now that [#91](https://github.com/swiftwasm/JavaScriptKit/pull/91) by
+so far. Most importantly, now that PR [#91](https://github.com/swiftwasm/JavaScriptKit/pull/91) by
 [@kateinoigakukun](https://github.com/kateinoigakukun) was merged, JavaScriptKit no longer uses
 unsafe flags in its `Package.swift`. The use of unsafe flags was a big problem for us, as it breaks
 dependency resolution due to strict checks that SwiftPM applies. If any package in your dependency
@@ -37,22 +37,48 @@ be built for macOS or Linux. And while the WebAssembly DOM renderer in Tokamak i
 module right now, this prevented static HTML rendering from working on macOS and
 Linux.
 
-Another issue we had with JavaScriptKit is [the naming of `JSValueConstructible` and
-`JSValueConvertible`](https://github.com/swiftwasm/JavaScriptKit/issues/87) protocols. These
+Another issue we had with JavaScriptKit is [the naming of `JSValueConstructible`
+and `JSValueConvertible`](https://github.com/swiftwasm/JavaScriptKit/issues/87) protocols. These
 protocols are used for conversions between `JSValue` references and arbitrary Swift values. In
 practice it wasn't always clear which of these protocols was responsible for a specific conversion.
 After some deliberation, these were renamed to `ConstructibleFromJSValue` and `ConvertibleToJSValue`
 respectively in [#88](https://github.com/swiftwasm/JavaScriptKit/pull/88).
 
+[A proposal PR](https://github.com/swiftwasm/JavaScriptKit/pull/98) was submitted by
+[@kateinoigakukun](https://github.com/kateinoigakukun) to enable unsafe force unwrapping of
+dynamic member properties in JavaScript by default. That is, we would allow this
+
+
+```javascript
+let document = JSObject.global.document
+let foundDivs = document.getElementsByTagName("div")
+```
+
+in addition to the currently available explicit style with force unwrapping:
+
+```javascript
+let document = JSObject.global.document.object!
+let foundDivs = document.getElementsByTagName!("div").object!
+```
+
+The key thing to note is that the first option is still dynamically typed and these options are
+equivalent in their behavior. If you address a missing property on your JavaScript object with this
+API, your SwiftWasm app will crash. One possible reasoning for this change is that this would follow
+the approach of [PythonKit and Swift for
+TensorFlow](https://github.com/tensorflow/swift#why-swift-for-tensorflow), and improve readability
+and ease of use for newcomers. We encourage you to voice your opinion in PR comments to give us more
+feedback on this proposal.
+
 [An issue was raised](https://github.com/swiftwasm/JavaScriptKit/issues/97) by
-[@yonihemi](https://github.com/yonihemi) this week on our JavaScriptKit repository about `i64`
-Wasm function return type support in Safari. The reason for it is that [Safari is the only major
-browser](https://webassembly.org/roadmap/) that doesn't support
-[Wasm `i64` to `BigInt` conversion](https://github.com/WebAssembly/JS-BigInt-integration).
-Unfortunately, there are many APIs that require this conversion to work, and it's unclear
-yet if this can be polyfilled on the JavaScript side at all. Currently it looks like we need to
-apply some transformations to binaries produced by SwiftWasm to resolve this issue, but it remains
-to be seen how well that would work in practice.
+[@yonihemi](https://github.com/yonihemi) this week on our JavaScriptKit repository about `i64` Wasm
+function return type support in Safari. The reason for it is that [Safari is the only major
+browser](https://webassembly.org/roadmap/) that [doesn't
+support](https://bugs.webkit.org/show_bug.cgi?id=213528) [Wasm `i64` to `BigInt`
+conversion](https://github.com/WebAssembly/JS-BigInt-integration). Unfortunately, there are many
+APIs that require this conversion to work, and it's unclear yet if this can be polyfilled on the
+JavaScript side at all. Currently it looks like we need to apply some transformations to binaries
+produced by SwiftWasm to resolve this issue, but it remains to be seen how well that would work in
+practice.
 
 ## Tokamak
 
@@ -75,18 +101,30 @@ quality-of-life improvements to `carton`:
 There's also an open "Pretty print diagnostics" PR [#112](https://github.com/swiftwasm/carton/pull/122)
 submitted by [@carson-katri](https://github.com/carson-katri). It does some magic with diagnostic
 messages emitted by the Swift compiler, highlights relevant lines of code and formats all of it
-nicely. Arguably, this is going to be one of the best command-line build tool experiences I've seen.
-You can check out a preview on this screenshot:
+nicely. You can check out a preview on this screenshot:
 
-![Pretty-print compiler diagnostics in `carton`](./update-02-carton.png)
-
-## Toolchain/SDK work
+![Pretty-print compiler diagnostics in `carton`](/images/update-02-carton.png width=100%)
 
 
 ## Upstream PRs
 
+Not much upstreaming work happened in October yet, but there was some progress in [adding
+cross-compilation support to SourceKit-LSP](https://github.com/apple/sourcekit-lsp/pull/330).
+We are also preparing a 5.3 SwiftWasm snapshot with this patch, which will enable this
+new `--destination` option on SourceKit-LSP. When that works, we want `carton` to infer a value
+for this option and launch it automatically for you when needed. This is all to make auto-complete
+work correctly for your SwiftWasm apps and libraries in VSCode or any other LSP-supporting editor
+or LSP.
 
-### SourceKit-LSP
+
+## Toolchain/SDK work
+
+Most of the work in preparation for the 5.3.0 release of SwiftWasm has been done. Now that it's
+possible to build JavaScriptKit without unsafe flags, and with IndexStoreDB and SourceKit-LSP
+shipping with the latest 5.3.0 snapshots, only the last round of testing is needed before tagging a
+release candidate. The rest of our work on the SwiftWasm toolchain and SDK was mostly related to
+fixing a build breakage caused by updates to GitHub Actions runner images and resolving conflicts
+with upstream code.
 
 ## Contributions
 

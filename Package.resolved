@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "CNAMEPublishPlugin",
+        "repositoryURL": "https://github.com/SwiftyGuerrero/CNAMEPublishPlugin",
+        "state": {
+          "branch": null,
+          "revision": "17bf8912dee5f3639f9956143a38032fca3a9d56",
+          "version": "0.2.0"
+        }
+      },
+      {
         "package": "Codextended",
         "repositoryURL": "https://github.com/johnsundell/codextended.git",
         "state": {
@@ -17,6 +26,24 @@
           "branch": null,
           "revision": "22fe84797d499ffca911ccd896b34efaf06a50b9",
           "version": "4.1.1"
+        }
+      },
+      {
+        "package": "HTMLString",
+        "repositoryURL": "https://github.com/alexaubry/HTMLString",
+        "state": {
+          "branch": null,
+          "revision": "7fb27bf13771e239c9952507199920dfe1605ca9",
+          "version": "4.0.2"
+        }
+      },
+      {
+        "package": "ImageAttributesPublishPlugin",
+        "repositoryURL": "https://github.com/finestructure/ImageAttributesPublishPlugin",
+        "state": {
+          "branch": null,
+          "revision": "d9c7e5214cea8821a75fa91a35c2667a848e53be",
+          "version": "0.1.1"
         }
       },
       {

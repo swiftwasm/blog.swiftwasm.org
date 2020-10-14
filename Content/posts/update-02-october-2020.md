@@ -10,7 +10,7 @@ that this blog is fully open-source, so if you spot a typo, an error, a broken l
 other feedback, please feel free to file it [in our `blog.swiftwasm.org` GitHub
 repository](https://github.com/swiftwasm/blog.swiftwasm.org).
 
-## SwiftWasm Team Updates
+## SwiftWasm team updates
 
 We would like to welcome [@yonihemi](https://github.com/yonihemi) to the SwiftWasm team who joined
 us in the beginning of October. After the previous contributions he made to
@@ -18,6 +18,13 @@ us in the beginning of October. After the previous contributions he made to
 everyone to contribute to any of our repositories, and it doesn't require much prior experience with
 SwiftWasm if any at all. Bug fixes, feature additions, improved documentation and related changes
 are very much appreciated and allow our ecosystem to grow even more!
+
+## SwiftWasm documentation
+
+Our documentation was restructured and updated, and is now hosted on the
+[`book.swiftwasm.org`](https://book.swiftwasm.org) domain. Please file all feedback in the
+[`swiftwasm-book`](https://github.com/swiftwasm/swiftwasm-book) repository on GitHub, which hosts
+its source code.
 
 ## JavaScriptKit
 

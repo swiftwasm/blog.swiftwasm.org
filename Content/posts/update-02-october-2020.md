@@ -53,7 +53,7 @@ respectively in [#88](https://github.com/swiftwasm/JavaScriptKit/pull/88).
 
 [A proposal PR](https://github.com/swiftwasm/JavaScriptKit/pull/98) was submitted by
 [@kateinoigakukun](https://github.com/kateinoigakukun) to enable unsafe force unwrapping of
-dynamic member properties in JavaScript by default. That is, we would allow this
+dynamic member properties in JavaScript by default. That is, it would allow this
 
 
 ```javascript

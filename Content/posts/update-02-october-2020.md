@@ -121,7 +121,7 @@ We are also preparing a 5.3 SwiftWasm snapshot with this patch, which will enabl
 new `--destination` option on SourceKit-LSP. When that works, we want `carton` to infer a value
 for this option and launch it automatically for you when needed. This is all to make auto-complete
 work correctly for your SwiftWasm apps and libraries in VSCode or any other LSP-supporting editor
-or LSP.
+or IDE.
 
 
 ## Toolchain/SDK work

@@ -1,7 +1,6 @@
 ---
 date: 2020-09-30 14:34
 description: An update on what happened in the SwiftWasm ecosystem during September 2020.
-# tags: update
 ---
 # September 2020 Update
 

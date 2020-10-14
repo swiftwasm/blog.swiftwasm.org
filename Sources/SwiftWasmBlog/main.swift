@@ -1,4 +1,6 @@
+import CNAMEPublishPlugin
 import Foundation
+import ImageAttributesPublishPlugin
 import Plot
 import Publish
 import SplashPublishPlugin
@@ -25,6 +27,9 @@ struct Blog: Website {
 // This will generate your website using the built-in Foundation theme:
 try Blog().publish(using: [
   .installPlugin(.splash(withClassPrefix: "splash-")),
+  .installPlugin(.generateCNAME(with: "blog.swiftwasm.org")),
+  .installPlugin(.imageAttributes()),
+  .copyResources(at: "Images", to: "images"),
   .addMarkdownFiles(),
   .generateHTML(withTheme: .swiftwasm),
   .generateRSSFeed(including: [.posts]),

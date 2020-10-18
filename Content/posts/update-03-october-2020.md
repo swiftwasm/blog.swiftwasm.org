@@ -4,6 +4,27 @@ description: An update on what happened in the SwiftWasm ecosystem during the se
 ---
 # What's new in SwiftWasm #3
 
+## Examples and guides
+
+[@hassan-shahbazi](https://github.com/hassan-shahbazi) wrote [a 3 part
+guide](https://medium.com/@h.shahbazi/the-power-of-swift-web-assembly-part-1-fdfa4e9134ee) about
+his experience when integrating SwiftWasm apps within Go apps through [Wasmer](https://wasmer.io/).
+He also published [example code accompanying the
+articles](https://github.com/hassan-shahbazi/swiftwasm-go) on GitHub. It's a great introduction
+to SwiftWasm that doesn't assume much prior knowledge, and could be useful if you'd like to
+integrate binaries produced by SwiftWasm in any host application.
+
+## Libraries
+
+### Tokamak
+
+[@Cosmo](https://github.com/Cosmo) pointed out that SwiftUI apps should change almost the whole
+palette when switching between color schemes. As he discovered when working on his
+[OpenSwiftUI](https://github.com/Cosmo/OpenSwiftUI/) and [SwiftUIEmbedded](https://github.com/Cosmo/SwiftUIEmbedded)
+projects, the implementation of the `Color` type is much more subtle than we originally anticipated.
+This is now [tracked in the Tokamak repository](https://github.com/TokamakUI/Tokamak/issues/290) and
+will help us a lot in our goal to track the SwiftUI behavior as closely as possible.
+
 ## Upstream PRs
 
 ### Swift Driver

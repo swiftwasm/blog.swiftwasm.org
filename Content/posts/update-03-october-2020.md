@@ -29,7 +29,7 @@ will help us a lot in our goal to track the SwiftUI behavior as closely as possi
 
 ### Swift Driver
 
-[@owenv](https://github.com/owenv) submitted [a PR to the Swift Driver
+[@owenv](https://github.com/owenv) merged [a PR to the Swift Driver
 project](https://github.com/apple/swift-driver/pull/315) implementing WebAssembly toolchain
 support. This mirrors our existing [C++ implementation in the legacy
 driver](https://github.com/swiftwasm/swift/blob/swiftwasm/lib/Driver/WebAssemblyToolChains.cpp), and

@@ -14,6 +14,15 @@ articles](https://github.com/hassan-shahbazi/swiftwasm-go) on GitHub. It's a gre
 to SwiftWasm that doesn't assume much prior knowledge, and could be useful if you'd like to
 integrate binaries produced by SwiftWasm in any host application.
 
+## Developer tools
+
+[@kateinoigakukun](https://github.com/kateinoigakukun) published [a pure Swift implementation of a
+transformer for Wasm binaries](https://github.com/swiftwasm/WasmTransformer). This resolves
+[the issue with `i64` to `BigInt` incompatibility in Safari](https://github.com/swiftwasm/JavaScriptKit/issues/97),
+as we can now [integrate an appropriate transformation](https://github.com/swiftwasm/carton/pull/131)
+into our build pipeline in `carton`. The `WasmTransformer` library is still at an early stage, but
+it shows that Swift is suitable for low-level code just as well as C/C++ or Rust.
+
 ## Libraries
 
 ### Tokamak

@@ -16,12 +16,39 @@ integrate binaries produced by SwiftWasm in any host application.
 
 ## Developer tools
 
+### WasmTransformer
+
 [@kateinoigakukun](https://github.com/kateinoigakukun) published [a pure Swift implementation of a
 transformer for Wasm binaries](https://github.com/swiftwasm/WasmTransformer). This resolves
 [the issue with `i64` to `BigInt` incompatibility in Safari](https://github.com/swiftwasm/JavaScriptKit/issues/97),
 as we can now [integrate an appropriate transformation](https://github.com/swiftwasm/carton/pull/131)
 into our build pipeline in `carton`. The `WasmTransformer` library is still at an early stage, but
 it shows that Swift is suitable for low-level code just as well as C/C++ or Rust.
+
+### `carton`
+
+In addition to the WasmTransfomer integration mentioned above, `carton test` now [passes
+the `--enable-test-discovery` flag to `swift test` by default](https://github.com/swiftwasm/carton/pull/130),
+which means that you no longer need to maintain `LinuxMain.swift` and `XCTestManifests.swift` files
+in your test suites.
+
+A `Dockerfile` [was added to the `carton` repository](https://github.com/swiftwasm/carton/pull/136),
+and you can now run `carton` in a Docker container, which also has the toolchain and other
+dependencies preinstalled. You can pull the Docker image with a simple command:
+
+```
+docker pull ghcr.io/swiftwasm/carton:latest
+```
+
+### GitHub Actions
+
+Thanks to `carton` becoming available as a Docker image, it can now be used in
+our [`swiftwasm-action`](https://github.com/swiftwasm/swiftwasm-action), which previously only
+contained the plain SwiftWasm toolchain without any additional tools. This action now
+invokes `carton test` by default on a given repository during a GitHub Actions run, but you can
+customize it and call any other command. For example, you could run `carton bundle` with `swiftwasm-action`,
+and then use the [`peaceiris/actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages) step
+to deploy the resulting bundle to [GitHub Pages](https://pages.github.com/).
 
 ## Libraries
 

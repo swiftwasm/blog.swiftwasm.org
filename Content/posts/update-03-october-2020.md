@@ -90,7 +90,7 @@ us.
 In preparation for the 5.3.0 release of SwiftWasm, our macOS archives are [now distributed as
 signed `.pkg` installers](https://github.com/swiftwasm/swift/pull/2029). Also need to mention that
 the toolchain archive is now available for Ubuntu 20.04, and all archive files now have consistent
-naming that includes the full OS name and CPU architecture, which will make it much easier for us
+naming that includes the full OS name and CPU architecture. This will make it much easier for us
 to distribute ARM64 builds and builds for other Linux distributions in the
 future. `wasm-5.3-SNAPSHOT-2020-10-20-a` is our current 5.3.0 release candidate and we encourage you
 to try it. We'll be using it in our apps and libraries for some time, and will tag 5.3.0 when we

@@ -40,9 +40,14 @@ dependencies preinstalled. You can pull the Docker image with a simple command:
 docker pull ghcr.io/swiftwasm/carton:latest
 ```
 
+Additionally, `carton` gained [support for Ubuntu 20.04](https://github.com/swiftwasm/carton/pull/134),
+and now also has a CI job to test compatibility with it during development. Similarly, [a CI job
+for macOS Big Sur on Intel platforms](https://github.com/swiftwasm/carton/pull/132) was added as
+soon as GitHub Actions started providing appropriate CI images.
+
 ### GitHub Actions
 
-Thanks to `carton` becoming available as a Docker image, it can now be used in
+Thanks to the fact that `carton` is now available in a Docker image, it can now be used in
 our [`swiftwasm-action`](https://github.com/swiftwasm/swiftwasm-action), which previously only
 contained the plain SwiftWasm toolchain without any additional tools. This action now
 invokes `carton test` by default on a given repository during a GitHub Actions run, but you can
@@ -51,6 +56,12 @@ and then use the [`peaceiris/actions-gh-pages`](https://github.com/peaceiris/act
 to deploy the resulting bundle to [GitHub Pages](https://pages.github.com/).
 
 ## Libraries
+
+## JavaScriptKit
+
+[JavaScriptKit 0.8.0](https://github.com/swiftwasm/JavaScriptKit/releases/tag/0.8.0) has been
+released. As mentioned in our previous issue, it introduces a few enhancements and deprecations,
+and is a recommended upgrade for all users.
 
 ### Tokamak
 
@@ -73,3 +84,17 @@ it's great that the new parts of the Swift compiler rewritten in Swift are going
 WebAssembly too. While Swift Driver in that enabled in any toolchain by default, we're definitely
 going to enable it at some point in the future as soon Swift Driver seems to be stable enough for
 us.
+
+## Toolchain/SDK work
+
+In preparation for the 5.3.0 release of SwiftWasm, our macOS archives are [now distributed as
+signed `.pkg` installers](https://github.com/swiftwasm/swift/pull/2029). Also need to mention that
+the toolchain archive is now available for Ubuntu 20.04, and all archive files now have consistent
+naming that includes the full OS name and CPU architecture, which will make it much easier for us
+to distribute ARM64 builds and builds for other Linux distributions in the
+future. `wasm-5.3-SNAPSHOT-2020-10-20-a` is our current 5.3.0 release candidate and we encourage you
+to try it. We'll be using it in our apps and libraries for some time, and will tag 5.3.0 when we
+have enough confidence it has no major issues.
+
+The `wasm-DEVELOPMENT-SNAPSHOT` archives will continue to be tagged on a regular basis to serve as
+a preview of the next version of SwiftWasm, but are not recommended for general use.

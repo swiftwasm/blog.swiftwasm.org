@@ -13,7 +13,7 @@
 body {
   background: #fff;
   color: #000;
-  font-family: Helvetica, Arial;
+  font-family: 'Open Sans', Helvetica, Arial;
   text-align: center;
 }
 
@@ -62,19 +62,19 @@ nav li a.selected {
 h1 {
   margin-bottom: 20px;
   font-size: 2em;
-  font-family: serif;
+  font-family: 'Lora', serif;
   font-weight: 700;
 }
 
 h2 {
   margin: 20px 0;
-  font-family: serif;
+  font-family: 'Lora', serif;
   font-weight: 600;
 }
 
 h3 {
   margin: 0.75em 0;
-  font-family: serif;
+  font-family: 'Lora', serif;
   font-weight: 600;
 }
 

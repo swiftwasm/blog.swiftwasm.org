@@ -20,7 +20,7 @@ Algorithms"](https://garrepi.dev/swal) documentation page. It is a demo of the r
 for some of the functions and observe results directly in the browser. Not all of the functions are
 fully interactive now, but it's a great proof of concept for interactive documentation websites one
 could build with SwiftWasm. Its source code is [available on
-GitHub](https://github.com/apple/swift-algorithms).
+GitHub](https://github.com/johngarrett/swal-wasm).
 
 ## SwiftWasm documentation
 

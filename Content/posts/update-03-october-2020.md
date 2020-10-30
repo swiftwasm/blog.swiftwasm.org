@@ -75,7 +75,7 @@ is also parsed, reformatted, and highlighted in a nice summary view.
 <br />
 <br />
 
-![Pretty-printed test errors in `carton`](/images/update-03-carton-test-errors.png width=100%)
+![Pretty-printed test errors in `carton`](./images/update-03-carton-test-errors.png width=100%)
 
 <br />
 <br />

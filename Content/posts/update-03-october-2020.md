@@ -118,7 +118,7 @@ project](https://github.com/apple/swift-driver/pull/315) implementing WebAssembl
 support. This mirrors our existing [C++ implementation in the legacy
 driver](https://github.com/swiftwasm/swift/blob/swiftwasm/lib/Driver/WebAssemblyToolChains.cpp), and
 it's great that the new parts of the Swift compiler rewritten in Swift are going to support
-WebAssembly too. While Swift Driver in that enabled in any toolchain by default, we're definitely
+WebAssembly too. While Swift Driver isn't enabled in any toolchain by default, we're definitely
 going to enable it at some point in the future as soon Swift Driver seems to be stable enough for
 us.
 

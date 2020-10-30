@@ -110,7 +110,7 @@ submitted by [@carson-katri](https://github.com/carson-katri). It does some magi
 messages emitted by the Swift compiler, highlights relevant lines of code and formats all of it
 nicely. You can check out a preview on this screenshot:
 
-![Pretty-print compiler diagnostics in `carton`](/images/update-02-carton.png width=100%)
+![Pretty-printed compiler diagnostics in `carton`](/images/update-02-carton.png width=100%)
 
 
 ## Upstream PRs

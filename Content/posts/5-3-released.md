@@ -1,9 +1,9 @@
 ---
 date: 2020-11-10 0:39
-description: The first stable toolchain release of SwifWasm!
+description: The first stable toolchain release of SwiftWasm!
 ---
 
-# The first stable toolchain release of SwifWasm!
+# The first stable toolchain release of SwiftWasm!
 
 ## Overview 
 

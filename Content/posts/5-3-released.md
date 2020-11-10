@@ -1,6 +1,6 @@
 ---
 date: 2020-11-10 0:39
-description: The first stable toolchain release of SwiftWasm!
+description: Our stable 5.3 release of the toolchain is now available
 ---
 
 # The first stable toolchain release of SwiftWasm!

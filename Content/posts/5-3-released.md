@@ -7,7 +7,7 @@ description: Our stable 5.3 release of the toolchain is now available
 
 ## Overview 
 
-This is the [first public release](https://github.com/swiftwasm/swift/releases/tag/swift-wasm-5.3.0-RELEASE) of SwiftWasm toolchain, available as a signed .pkg installer for macOS. Also via swiftenv-compatible archives and Docker for Intel-based Ubuntu 18.04 and 20.04.
+This is the [first public release](https://github.com/swiftwasm/swift/releases/tag/swift-wasm-5.3.0-RELEASE) of SwiftWasm toolchain, available as a signed .pkg installer for macOS. Also via swiftenv-compatible archives and [Docker for Intel-based Ubuntu 18.04 and 20.04](https://github.com/orgs/swiftwasm/packages/container/package/swift).
 Our focus is on providing essential Swift features for the WebAssembly platform. Distributions supplied with this release are our most stable yet, and no breaking changes are expected for 5.3 releases anymore.
 
 

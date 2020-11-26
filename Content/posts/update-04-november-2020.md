@@ -9,7 +9,8 @@ description: An update on what happened in the SwiftWasm ecosystem during Novemb
 As you may have seen in [our previous post](https://blog.swiftwasm.org/posts/5-3-released/), we've
 published [our first stable
 release](https://github.com/swiftwasm/swift/releases/tag/swift-wasm-5.3.0-RELEASE) recently. Shortly
-after that, [@flavio](https://github.com/flavio) reported [an issue with `JSONDecoder`](https://github.com/swiftwasm/swift/issues/2223). Following [an
+after that, [@flavio](https://github.com/flavio) reported [an issue
+with `JSONDecoder`](https://github.com/swiftwasm/swift/issues/2223). Following [an
 investigation](https://github.com/swiftwasm/swift/pull/2240) by
 [@kateinoigakukun](https://github.com/kateinoigakukun) into the root cause of the issue, we've
 published [SwiftWasm

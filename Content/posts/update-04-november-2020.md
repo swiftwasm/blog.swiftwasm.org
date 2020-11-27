@@ -29,8 +29,9 @@ more details.)
 A major update since the latest 0.8.0 release of JavaScriptKit is [newly added support
 for throwing functions](https://github.com/swiftwasm/JavaScriptKit/pull/102) developed
 by [@kateinoigakukun](https://github.com/kateinoigakukun). It required an update
-to the JavaScript runtime part, but was an additive change to the Swift API. It's going to be
-included in [the 0.9.0 release](https://github.com/swiftwasm/JavaScriptKit/pull/109) of JavaScriptKit.
+to the JavaScript runtime part, but was an additive change to the Swift API. As we try to publish
+releases regularly, [new 0.9.0 release](https://github.com/swiftwasm/JavaScriptKit/releases/tag/0.9.0)
+was tagged that includes this feature.
 
 [A PR with support for Asyncify transformation](https://github.com/swiftwasm/JavaScriptKit/pull/107)
 was created by [@yonihemi](https://github.com/yonihemi). It allows calling asynchronous JavaScript

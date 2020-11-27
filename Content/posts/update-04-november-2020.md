@@ -78,9 +78,9 @@ bundle` with the `wasm-strip` utility from [WABT](https://github.com/webassembly
 the new transformation in `WasmTransformer`, WABT is no longer needed as a dependency of `carton`,
 which makes installation for our end users simpler and faster.
 
-There was also work on [Firefox stacktraces parsing](https://github.com/swiftwasm/carton/pull/162),
-[file downloader cleanup](https://github.com/swiftwasm/carton/pull/171), [support for browser
-testing](https://github.com/swiftwasm/carton/pull/173), and [simpler URLs for main bundle
+Initial support for presenting crash stack traces directly in `carton` has been completed, starting with [Firefox support](https://github.com/swiftwasm/carton/pull/162). Support for more browsers will be added in separate PRs.
+
+There was also work on [file downloader cleanup](https://github.com/swiftwasm/carton/pull/171), [support for browser testing](https://github.com/swiftwasm/carton/pull/173), and [simpler URLs for main bundle
 resources](https://github.com/swiftwasm/carton/pull/176). As soon as these are merged, a new version
 of `carton` will be tagged that will use the latest 5.3.1 release of SwiftWasm.
 

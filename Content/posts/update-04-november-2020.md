@@ -40,16 +40,6 @@ doesn't block browser rendering. The PR has some implications on how we build th
 it requires a specific optimizer transformation. It is still in the draft stage, and you're welcome
 to contribute to the ongoing discussion.
 
-### Tokamak
-
-Following [the 0.5.0 release](https://github.com/TokamakUI/Tokamak/releases/tag/0.5.0), which added
-support for the latest `carton`, we published [a small 0.5.1
-patch](https://github.com/TokamakUI/Tokamak/releases/tag/0.5.1) with support for editing Tokamak
-projects in Xcode with working autocomplete. Not long after that [an important
-bugfix](https://github.com/TokamakUI/Tokamak/pull/301) landed in
-[0.5.2](https://github.com/TokamakUI/Tokamak/releases/tag/0.5.2), which fixed an issue with display
-order of updated views in the DOM renderer.
-
 ### OpenCombine
 
 We still use [a fork of OpenCombine](https://github.com/TokamakUI/OpenCombine) in Tokamak due to
@@ -58,6 +48,29 @@ also contained some changes to the package manifest to make it build with SwiftW
 made it incompatible with non-Wasm platforms. This issue was [resolved in the upstream OpenCombine
 repository](https://github.com/OpenCombine/OpenCombine/pull/191), which reduced the amount of
 customizations we apply, and brings us closer to using the upstream repository as is.
+
+### OpenCombineJS
+
+With progress on OpenCombine, it was time to publish the first version of
+[OpenCombineJS](https://github.com/swiftwasm/OpenCombineJS). Its code didn't change recently, but
+parts of it were used in Tokamak already, which gave us confidence that it was reliable enough to be
+released in a separate library for wider use. It currently doesn't contain much code, but this basic
+functionality should be enough for basic integration of JavaScriptKit types and OpenCombine.
+
+### Tokamak
+
+Following [the 0.5.0 release](https://github.com/TokamakUI/Tokamak/releases/tag/0.5.0), which added
+support for the latest `carton`, we published [a small 0.5.1
+patch](https://github.com/TokamakUI/Tokamak/releases/tag/0.5.1) with support for editing Tokamak
+projects in Xcode with working autocomplete. Not long after that [an important
+bugfix](https://github.com/TokamakUI/Tokamak/pull/301) landed in
+[0.5.2](https://github.com/TokamakUI/Tokamak/releases/tag/0.5.2), which fixed an issue with display
+order of updated views in the DOM renderer. A few weeks later another [bugfix
+release](https://github.com/TokamakUI/Tokamak/releases/tag/0.5.3) was published as 0.5.3. In this
+update Tokamak now internally relies on the aforementioned OpenCombineJS library instead of
+providing its own `JSScheduler` type conforming to Combine's `Scheduler`. More importantly, it fixes
+[a bug with `Toggle` not being updated](https://github.com/TokamakUI/Tokamak/issues/287) after
+resetting it from a binding.
 
 ## Developer tools
 

@@ -37,6 +37,8 @@ https://github.com/swiftwasm/swift/pull/2405
 [@kateinoigakukun](https://github.com/kateinoigakukun) activated [concurrency feature on wasm32 with several issue fixes](https://github.com/swiftwasm/swift/pull/2408). Currently the toolchain only supports standalone single thread task executor. 
 The standalone executor is suitable for running in CLI Wasm runtimes like wasmer or wasmtime. But it blocks JavaScript event loop until all jobs are completed, and is unable to run any jobs created after the first event loop, so it's not suitable for running in JavaScript environments.
 
+The concurrency support has been enabled since [swift-wasm-DEVELOPMENT-SNAPSHOT-2021-01-02-a](https://github.com/swiftwasm/swift/releases/tag/swift-wasm-DEVELOPMENT-SNAPSHOT-2021-01-02-a).
+
 
 ## Libraries
 

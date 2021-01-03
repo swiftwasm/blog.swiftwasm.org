@@ -27,13 +27,48 @@ WebAssembly example with React and SwiftWasm https://expressflow.com/blog/posts/
 
 `WASILibc` module https://book.swiftwasm.org/getting-started/libc.html
 
+## Toolchain
+
+Add `swiftwasm-release/5.4` to `pull.yml` https://github.com/swiftwasm/swift/pull/2380
+https://github.com/swiftwasm/swift/pull/2405
+
+### Experimental async/await support
+
+[@kateinoigakukun](https://github.com/kateinoigakukun) activated [concurrency feature on wasm32 with several issue fixes](https://github.com/swiftwasm/swift/pull/2408). Currently the toolchain only supports standalone single thread task executor. 
+The standalone executor is suitable for running in CLI Wasm runtimes like wasmer or wasmtime. But it blocks JavaScript event loop until all jobs are completed, and is unable to run any jobs created after the first event loop, so it's not suitable for running in JavaScript environments.
+
+
 ## Libraries
+
+### JavaScriptKit
+
+[@kateinoigakukun](https://github.com/kateinoigakukun) started to implement [a Swift concurrency task executor cooperating with JavaScript's event loop](https://github.com/swiftwasm/JavaScriptKit/pull/112). There are still several issues, but it's well working as a PoC. Current experimental API allows us to write asynchronous programs in async/await style like this. 
+
+```swift
+import JavaScriptEventLoop
+import JavaScriptKit
+
+JavaScriptEventLoop.install()
+let fetch = JSObject.global.fetch.function!.async
+
+func printZen() async {
+  let result = await try! fetch("https://api.github.com/zen").object!
+  let text = await try! result.asyncing.text!()
+  print(text)
+}
+
+JavaScriptEventLoop.runAsync {
+  await printZen()
+}
+```
 
 ### WebAssembly Micro Runtime (WAMR)
 
 Add support for Apple Silicon on macOS https://github.com/bytecodealliance/wasm-micro-runtime/pull/480
 
-https://github.com/swiftwasm/wamr-swift
+[@kateinoigakukun](https://github.com/kateinoigakukun) published [a Swift WebAssembly runtime package](https://github.com/swiftwasm/wamr-swift) powered by [WAMR](https://github.com/bytecodealliance/wasm-micro-runtime). This allows us to remove wasmer command dependency from carton and distribute carton as a single binary.
+
+
 
 ### DOMKit
 
@@ -94,9 +129,3 @@ Make `TypeSection` public, rename `sizeProfiler` https://github.com/swiftwasm/Wa
 ### Gravity
 
 Binary code size profiler for WebAssembly built with [WasmTransformer](https://github.com/swiftwasm/WasmTransformer), [SwiftUI](https://developer.apple.com/xcode/swiftui/), and [TCA](https://github.com/pointfreeco/swift-composable-architecture/). https://github.com/swiftwasm/gravity
-
-## Toolchain
-
-Add `swiftwasm-release/5.4` to `pull.yml` https://github.com/swiftwasm/swift/pull/2380
-https://github.com/swiftwasm/swift/pull/2405
-https://github.com/swiftwasm/swift/pull/2408

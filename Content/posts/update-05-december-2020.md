@@ -4,8 +4,8 @@ description: An update on what happened in the SwiftWasm ecosystem during Decemb
 ---
 # What's new in SwiftWasm #5
 
-Happy New Year everyone! Published with a slight delay (it's 2021 already after all), here's a
-digest of what happened with [SwiftWasm](https://swiftwasm.org) in December of 2020.
+Happy New Year everyone! Here's a digest of what happened with [SwiftWasm](https://swiftwasm.org) in
+December of 2020, published with a slight delay (it's 2021 already after all 😅).
 
 ## SwiftWasm community
 
@@ -19,9 +19,9 @@ noteworthy:
 
 * [An online Multi-Player Meme Party Game written in Swift](https://github.com/nerdsupremacist/memes),
 using [Vapor](https://vapor.codes/) for backend and SwiftWasm with
-[Tokamak](https://tokamak.dev) for frontend built by [Mathias Quintero](https://github.com/nerdsupremacist).
+[Tokamak](https://tokamak.dev) for frontend, built by [Mathias Quintero](https://github.com/nerdsupremacist).
 * [Tic-tac-toe game](https://garrepi.dev/tic-tac-toe/) [built with SwiftWasm](https://github.com/johngarrett/tic-tac-toe) by [John Garrett](https://github.com/johngarrett).
-* [Example of SwiftWasm and React integration](https://expressflow.com/blog/posts/webassembly-example-with-react-and-swiftwasm) by
+* [WebAssembly example with React and SwiftWasm](https://expressflow.com/blog/posts/webassembly-example-with-react-and-swiftwasm) by
 [Martin Vasko](https://github.com/martinvasko).
 
 ## Documentation
@@ -30,43 +30,44 @@ using [Vapor](https://vapor.codes/) for backend and SwiftWasm with
 
 We're working on tracking down all the possible edge cases when porting code from other
 platforms in [the SwiftWasm book](https://book.swiftwasm.org/). Previously we were asked how to port
-code that depends on the `Darwin` module on Apple platforms and/or `Glibc` on Linux. We recommend
+code that depends on the `Darwin` module on Apple platforms or `Glibc` on Linux. We recommend
 using the `WASILibc` module, which obviously somewhat differs from libc on other platforms. We've
-added [a corresponding chapter clarifying this](https://book.swiftwasm.org/getting-started/libc.html)
+added [a corresponding note clarifying this](https://book.swiftwasm.org/getting-started/libc.html)
 to the book.
 
 ## Toolchain
 
 As the Swift team already announced [the release process for the 5.4
-version](https://forums.swift.org/t/swift-5-4-release-process/41936), we started preparing for the
-convergence of SwiftWasm 5.4. The [`swiftwasm-release/5.4`](https://github.com/swiftwasm/swift/tree/swiftwasm-release/5.4)
+version](https://forums.swift.org/t/swift-5-4-release-process/41936), we started preparing our
+corresponding SwiftWasm 5.4 release. The [`swiftwasm-release/5.4`](https://github.com/swiftwasm/swift/tree/swiftwasm-release/5.4)
 branch in our fork now [tracks the upstream `release/5.4`
-branch](https://github.com/swiftwasm/swift/pull/2380), as we plan to tag our own 5.4.0 release later
+branch](https://github.com/swiftwasm/swift/pull/2380), as we plan to tag our own 5.4.0 later
 this year.
 
-Additionally, we've made sure that the fork of our toolchain
+Additionally, we made sure that the fork of our toolchain
 [can be compiled on Apple Silicon Macs](https://github.com/swiftwasm/swift/pull/2405). While GitHub
-Actions doesn't provide CI agents built on M1 architecture, the SwiftWasm toolchain can be built
-locally for Apple Silicon, and we hope to provide a distribution archive for it in some future release.
+Actions doesn't provide CI agents for the M1 architecture, the SwiftWasm toolchain can be built
+locally for Apple Silicon, and we hope to provide a prebuilt distribution archive for it in some
+future release.
 
 ### Experimental async/await support
 
-[@kateinoigakukun](https://github.com/kateinoigakukun) enabled [experimental concurrency supported
-in SwiftWasm](https://github.com/swiftwasm/swift/pull/2408) while fixing several issues that
-previously prevented us from doing that in development snapshots. Currently, starting with
-[swift-wasm-DEVELOPMENT-SNAPSHOT-2021-01-02-a](https://github.com/swiftwasm/swift/releases/tag/swift-wasm-DEVELOPMENT-SNAPSHOT-2021-01-02-a)
+[@kateinoigakukun](https://github.com/kateinoigakukun) enabled [experimental concurrency support
+in SwiftWasm](https://github.com/swiftwasm/swift/pull/2408) and fixed several issues that
+previously prevented us from enabling `async`/`await` in development snapshots. Currently, starting with
+[swift-wasm-DEVELOPMENT-SNAPSHOT-2021-01-02-a](https://github.com/swiftwasm/swift/releases/tag/swift-wasm-DEVELOPMENT-SNAPSHOT-2021-01-02-a),
 the toolchain only supports a single-threaded task executor. This executor is suitable for usage in
 standalone WASI hosts such as Wasmer or Wasmtime. Unfortunately, it blocks the JavaScript event loop
 until all jobs are completed, and is unable to run any jobs created after the first event loop
-cycle. While this makes it unsuitable for running in JavaScript environments, we were able to fix
-this in JavaScriptKit as discussed in the next section.
+cycle. While this makes it unsuitable for JavaScript environments, we were able to work around that
+in JavaScriptKit as discussed in the next section.
 
 ## Libraries
 
 ### JavaScriptKit
 
 [@kateinoigakukun](https://github.com/kateinoigakukun) started implementing [a Swift concurrency
-task executor]((https://github.com/swiftwasm/JavaScriptKit/pull/112)) integrated with the JavaScript
+task executor](https://github.com/swiftwasm/JavaScriptKit/pull/112) integrated with the JavaScript
 event loop. There are still several issues, but it's working well as a proof of concept. This
 experimental API allows us to utilize `async`/`await` in SwiftWasm apps for browsers and Node.js
 like this:
@@ -89,79 +90,92 @@ JavaScriptEventLoop.runAsync {
 }
 ```
 
-### WebAssembly Micro Runtime (WAMR)
+### WebAssembly Micro Runtime
 
 [@kateinoigakukun](https://github.com/kateinoigakukun) published [a Swift WebAssembly runtime
 package](https://github.com/swiftwasm/wamr-swift) powered by [the WebAssembly Micro Runtime
-project](https://github.com/bytecodealliance/wasm-micro-runtime). This allows us to remove Wasmer
+project](https://github.com/bytecodealliance/wasm-micro-runtime) (WAMR). This allows us to remove Wasmer
 dependency from `carton` and embed the WebAssembly runtime in the `carton` binary for use in
 commands such as `carton test`.
 
-We were also able to test this package on Apple Silicon and submitted [a PR upstream] to make it
-work.
+We were also able to test this package on Apple Silicon and submit [a PR
+upstream](https://github.com/bytecodealliance/wasm-micro-runtime/pull/480) to make it work.
 
 ### DOMKit
 
 Our long-term goal is to make [DOMKit](https://github.com/swiftwasm/DOMKit) the recommended library
 for type-safe interactions with Web APIs in SwiftWasm. While it's still at an early stage, we've
-updated it to [JavaScriptKit 0.9 and added support for
-`globalThis`](https://github.com/swiftwasm/DOMKit/pull/3). [In a separate
-PR](https://github.com/swiftwasm/DOMKit/pull/4) we've cleaned up unused code and fixed an event
-handlers crash.
+updated it to [JavaScriptKit 0.9 and added support for `globalThis`](https://github.com/swiftwasm/DOMKit/pull/3).
+[In a separate PR](https://github.com/swiftwasm/DOMKit/pull/4) we've cleaned up unused code and
+fixed an event handlers crash.
 
 ### Tokamak
-This release introduces support for the `Image` view, which can load images bundled as SwiftPM resources,
-implemented by [@j-f1](https://github.com/j-f1). It also adds the `PreferenceKey` protocol and related modifiers.
-developed by [@carson-katri](https://github.com/carson-katri) https://github.com/TokamakUI/Tokamak/releases/tag/0.6.0
 
-Add `PreviewProvider` protocol https://github.com/TokamakUI/Tokamak/pull/328
-Add `TextEditor` implementation https://github.com/TokamakUI/Tokamak/pull/329
-Update script injection code in `README.md` https://github.com/TokamakUI/Tokamak/pull/332
-Added some missing TokamakDOM/Core type typealiases https://github.com/TokamakUI/Tokamak/pull/331 by [David Hunt](https://github.com/foscomputerservices)
-Remove extra `path` element https://github.com/TokamakUI/Tokamak/pull/341 by [@j-f1](https://github.com/j-f1)
+With enough changes to warrant a new release, we've published [Tokamak
+0.6.0](https://github.com/TokamakUI/Tokamak/releases/tag/0.6.0), which introduced support for
+the `Image` view loading images bundled as SwiftPM resources, implemented by
+[@j-f1](https://github.com/j-f1). It also adds the `PreferenceKey` protocol and related modifiers.
+developed by [@carson-katri](https://github.com/carson-katri).
+
+Since then we've also added [the `PreviewProvider` protocol](https://github.com/TokamakUI/Tokamak/pull/328),
+[an implementation of `TextEditor`](https://github.com/TokamakUI/Tokamak/pull/329), and updated
+our [example code in `README.md` for script injection](https://github.com/TokamakUI/Tokamak/pull/332).
+Additionally, a contribution from [David Hunt](https://github.com/foscomputerservices) [added
+missing typealiases to TokamakDOM](https://github.com/TokamakUI/Tokamak/pull/331) that should improve
+compatibility with SwiftUI, while [Jed Fox](https://github.com/j-f1) removed [redundant `path` element
+from SVG output](https://github.com/TokamakUI/Tokamak/pull/341).
 
 ## Developer tools
 
 ### `carton`
 
-We'd like to welcome [@thecb4](https://github.com/thecb4), who is the latest addition to the
-`carton` maintainers team.
+We'd like to welcome [@thecb4](https://github.com/thecb4), who is the latest addition to the `carton`
+maintainers team! Thanks to his work, [project targets were restructured for better
+testability](https://github.com/swiftwasm/carton/pull/191), and
+now [`test`](https://github.com/swiftwasm/carton/pull/198), [`dev`, and `bundle`](https://github.com/swiftwasm/carton/pull/196)
+commands are covered with end-to-end tests.
 
-Use WAMR for `carton test` https://github.com/swiftwasm/carton/pull/195
+There's [ongoing work](https://github.com/swiftwasm/carton/pull/195) to integrate [the WAMR
+package](https://github.com/swiftwasm/wamr-swift) mentioned above with the `carton test` command.
+Also, `carton` now [correctly handles system target dependencies
+in `Package.swift`](https://github.com/swiftwasm/carton/pull/189).
 
-Add support for Chrome and Safari stack traces https://github.com/swiftwasm/carton/pull/186 by [@j-f1](https://github.com/j-f1)
+On top of that, stack traces from
+Chrome and Safari are [now supported in `carton dev` with proper symbol
+demangling](https://github.com/swiftwasm/carton/pull/186), thanks to the work by [@j-f1](https://github.com/j-f1).
+Additionally, [@yonihemi](https://github.com/yonihemi) submitted [a PR which integrates `carton`
+with libSwiftPM](https://github.com/swiftwasm/carton/pull/194) allowing us to reuse its model types.
 
-Add `test` command test with no arguments https://github.com/swiftwasm/carton/pull/198
-Add tests for `dev` and `bundle` commands https://github.com/swiftwasm/carton/pull/196
-Add Dev tests and fix hard coded paths https://github.com/swiftwasm/carton/pull/192
-Changes to project structure to allow for better testability https://github.com/swiftwasm/carton/pull/191
-by [@thecb4](https://github.com/thecb4)
-
-https://github.com/swiftwasm/carton/releases/tag/0.9.0
-https://github.com/swiftwasm/carton/releases/tag/0.9.1
-
-Mark all commands as implemented in `README.md` https://github.com/swiftwasm/carton/pull/180
-
-Fix parsing system targets in `Package.swift` https://github.com/swiftwasm/carton/pull/189
-
-Use libSwiftPM instead of custom model types https://github.com/swiftwasm/carton/pull/194 by [@yonihemi](https://github.com/yonihemi)
-
+Most of these changes were included in [0.9.0](https://github.com/swiftwasm/carton/releases/tag/0.9.0)
+and [0.9.1](https://github.com/swiftwasm/carton/releases/tag/0.9.1) releases published in December.
 
 ### `webidl2swift`
 
-Update arg parser, fix deprecated JSKit types https://github.com/Apodini/webidl2swift/pull/10
-
-Update to latest JavaScriptKit https://github.com/Apodini/webidl2swift/pull/8
+[`webidl2swift`](https://github.com/Apodini/webidl2swift) is the foundation on which
+our [DOMKit](https://github.com/swiftwasm/DOMKit/) framework is built. Web API across all browsers is specified in
+[the Web IDL format](https://en.wikipedia.org/wiki/Web_IDL), which can then be parsed to generate
+type-safe bindings in Swift. The parser doesn't support all IDL files out there yet, but we've
+[updated dependencies and updated the code
+generator](https://github.com/Apodini/webidl2swift/pull/10) to certain JavaScriptKit types that
+previously were deprecated.
 
 ### WasmTransformer
 
-Generalize section info parsing in transformers https://github.com/swiftwasm/WasmTransformer/pull/12
-Implement a basic section size profiler https://github.com/swiftwasm/WasmTransformer/pull/14
-Make `TypeSection` public, rename `sizeProfiler` https://github.com/swiftwasm/WasmTransformer/pull/15
+There were a few changes to [the WasmTransformer package](https://github.com/swiftwasm/WasmTransformer),
+which we use in `carton` and intend to use in a few other dev tools. Specifically, we've [generalized
+section info parsing](https://github.com/swiftwasm/WasmTransformer/pull/12) across different transformers,
+[implemented a basic section size profiler](https://github.com/swiftwasm/WasmTransformer/pull/14),
+and [made the `TypeSection` type public](https://github.com/swiftwasm/WasmTransformer/pull/15) to
+make it easier to analyze sections of WebAssembly binaries.
 
 ### Gravity
 
-Binary code size profiler for WebAssembly built with [WasmTransformer](https://github.com/swiftwasm/WasmTransformer), [SwiftUI](https://developer.apple.com/xcode/swiftui/), and [TCA](https://github.com/pointfreeco/swift-composable-architecture/). https://github.com/swiftwasm/gravity
+We're excited to announce our new developer tool enabled by WasmTransformer.
+[Gravity](https://github.com/swiftwasm/gravity) is a binary code size profiler for WebAssembly built
+with WasmTransformer, [SwiftUI](https://developer.apple.com/xcode/swiftui/), and
+[TCA](https://github.com/pointfreeco/swift-composable-architecture/). It's an application for macOS
+that allows you to open a WebAssembly binary and view the size of different sections. Contents of
+some of the sections is also parsed for further analysis.
 
 ## Contributions
 

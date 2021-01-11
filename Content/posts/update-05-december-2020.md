@@ -34,6 +34,7 @@ issues that could be suitable for beginners:
 * [swiftwasm/carton#201](https://github.com/swiftwasm/carton/issues/201) Correctly handle failure to launch browser process while testing
 * [swiftwasm/carton#199](https://github.com/swiftwasm/carton/issues/199) `--enable-test-discovery` is now deprecated
 * [swiftwasm/carton#193](https://github.com/swiftwasm/carton/issues/193) Add `--host` option to `carton dev` and `carton test`
+* [TokamakUI/Tokamak](https://github.com/TokamakUI/Tokamak/issues/350) Set up code coverage reports on GitHub Actions
 
 ## Documentation
 

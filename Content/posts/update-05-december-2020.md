@@ -1,5 +1,5 @@
 ---
-date: 2021-12-11 14:34
+date: 2021-01-11 14:34
 description: An update on what happened in the SwiftWasm ecosystem during December 2020.
 ---
 # What's new in SwiftWasm #5

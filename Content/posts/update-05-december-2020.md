@@ -29,7 +29,7 @@ using [Vapor](https://vapor.codes/) for backend and SwiftWasm with
 Ever wanted to contribute to SwiftWasm projects, but unsure where to start? Here's a list of
 issues that could be suitable for beginners:
 
-* [swiftwasm/swift$29](https://github.com/swiftwasm/swift/issues/29): Fix compile error on test cases depending on platform
+* [swiftwasm/swift#29](https://github.com/swiftwasm/swift/issues/29): Fix compile error on test cases depending on platform
 * [swiftwasm/carton#203](https://github.com/swiftwasm/carton/issues/203): Allow launching a specific browser with `carton test`
 * [swiftwasm/carton#201](https://github.com/swiftwasm/carton/issues/201): Correctly handle failure to launch browser process while testing
 * [swiftwasm/carton#199](https://github.com/swiftwasm/carton/issues/199): `--enable-test-discovery` is now deprecated

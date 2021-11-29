@@ -98,7 +98,7 @@ a reference cycle is created
 ```
 
 In this case, when `button` element is removed from the main DOM tree, it cannot be deallocated.
-The `onlick` closure is still referenced by the button itself. These reference cycles can be resolved
+The `onclick` closure is still referenced by the button itself. These reference cycles can be resolved
 with the usual `weak` captures you're probably used to writing in your AppKit and UIKit code.
 
 ## Tokamak

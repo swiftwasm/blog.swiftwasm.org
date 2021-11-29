@@ -78,6 +78,29 @@ after neither your Swift code nor the JavaScript runtime hold any references to 
 required for JavaScriptKit to work. See [`README.md`](https://github.com/swiftwasm/JavaScriptKit#readme)
 in the project repository for more details.
 
+We have to mention that there's still a possibility of reference cycles with this new API. `FinalizationRegistry`
+doesn't implement full GC for JS closures, but it only solves dangling closure issue. For example,
+in this code
+
+```
+var button = document.createElement("button")
+button.onclick = .object(JSClosure { [button] in
+  // this capture makes a reference cycle
+  print(button)
+})
+```
+
+a reference cycle is created
+
+```
+┌─> JSObject (button in Swift) -> HTMLElement (button in JS) ────┐
+└── JSClosure (onclick in Swift) <─> Closure (onclick in JS) <───┘
+```
+
+In this case, when `button` element is removed from the main DOM tree, it cannot be deallocated.
+The `onlick` closure is still referenced by the button itself. These reference cycles can be resolved
+with the usual `weak` captures you're probably used to writing in your AppKit and UIKit code.
+
 ## Tokamak
 
 Based on the improvements to JavaScriptKit and major work by our contributors, we're also tagging

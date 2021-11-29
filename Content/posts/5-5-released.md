@@ -1,6 +1,6 @@
 ---
 date: 2021-11-29 10:10
-description: SwiftWasm 5.5.0 with support for `async`/`await` and Apple Silicon has been released.
+description: SwiftWasm 5.5.0 with support for async/await and Apple Silicon has been released.
 ---
 
 # SwiftWasm 5.5.0 is now available

@@ -13,19 +13,21 @@ section below for more details.
 
 Since multi-threading in WebAssembly is still not supported across all browsers
 ([Safari is the only one lagging behind](https://webassembly.org/roadmap/)), this release of
-SwiftWasm doesn't include the Dispatch library and ships with single-threaded cooperative executor. This means
-that `actor` declarations in your code will behave as plain reference type and will all be scheduled
-on the main thread. You should rely on scheduling your CPU-bound work manually with the [Web Workers
-API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers), using
-JavaScriptKit or delegating to raw JavaScript if this is needed.
+SwiftWasm doesn't include the Dispatch library and ships with a single-threaded cooperative executor. This means
+that `actor` declarations in your code will behave as plain reference types and will all be scheduled
+on the main thread. If you need true parallel computation, you’ll have to write
+custom code against the
+[Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
+(either via JavaScriptKit or delegating to raw JavaScript) to synchronize
+multiple SwiftWasm runtimes.
 
 Additionally, 5.5.0 is the first release of SwiftWasm that supports Apple Silicon natively.
-Use the latest version of [`carton`](https://github.com/swiftwasm/carton) (0.12.0), which will download the native distribution
-automatically on supported hardware.
+The latest version of [`carton`](https://github.com/swiftwasm/carton) (0.12.0)
+will download the `arm64` distribution on Apple Silicon devices.
 
 ## New JavaScriptKit runtime
 
-Accompanying 0.11 release of [JavaScriptKit](https://github.com/swiftwasm/JavaScriptKit) adds
+The 0.11 release of [JavaScriptKit](https://github.com/swiftwasm/JavaScriptKit) adds
 support for `async`/`await` and `JSPromise` integration. Now instances of this
 class have an effectful `async` property `value`. Here's example code that shows you how
 can `fetch` browser API be used without callbacks:
@@ -70,8 +72,8 @@ _ = document.body.appendChild(asyncButtonElement)
 ```
 
 Also, in this version of JavaScriptKit we're simplifying the `JSClosure` API. You no longer need to
-release instances of this class manually, they're automatically garbage-collected by the browser
-after your Swift code no longer has any references to them. This is achieved with the new
+release instances of this class manually, as they will be automatically garbage-collected by the browser
+after neither your Swift code nor the JavaScript runtime hold any references to them. This is achieved with the new
 `FinalizationRegistry` Web API, for which we had to significantly increase minimum browser versions
 required for JavaScriptKit to work. See [`README.md`](https://github.com/swiftwasm/JavaScriptKit#readme)
 in the project repository for more details.
@@ -80,14 +82,14 @@ in the project repository for more details.
 
 Based on the improvements to JavaScriptKit and major work by our contributors, we're also tagging
 a new 0.9.0 release of [Tokamak](https://github.com/TokamakUI/Tokamak), a SwiftUI-compatible
-framework for building browser apps with WebAssembly. Namely, we've added:
+framework for building browser apps with WebAssembly. We've added:
 
 - `Canvas` and `TimelineView` types;
 - `onHover` modifier;
 - `task` modifier for running `async` functions;
-- Sanitizers for `Text` view.
+- Sanitizers for the `Text` view.
 
-This release now also requires Swift 5.4 as a minimum version, and Swift 5.5 (with SwiftWasm
+Tokamak v0.9.0 now requires Swift 5.4 or newer. Swift 5.5 (with SwiftWasm
 5.5 when targeting the browser environment) is recommended.
 
 ## Acknowledgements
@@ -105,6 +107,6 @@ happen. These new releases wouldn't be possible without the hard work of (in alp
 - [@kateinoigakukun](https://github.com/kateinoigakukun)
 - [@MaxDesiatov](https://github.com/MaxDesiatov)
 - [@mbrandonw](https://github.com/mbrandonw)
-- [@PatrickPijnappel](https://github.com/PatrickPijnappel
+- [@PatrickPijnappel](https://github.com/PatrickPijnappel)
 - [@yonihemi](https://github.com/yonihemi/)
 - all of our users, and everyone working on the Swift project and libraries we depend on!

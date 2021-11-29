@@ -120,7 +120,8 @@ Tokamak v0.9.0 now requires Swift 5.4 or newer. Swift 5.5 (with SwiftWasm
 We'd like to thank [our sponsors](https://github.com/sponsors/swiftwasm) for their support, which
 allowed us to continue working on SwiftWasm and related project.
 
-Also, we want to say thank you to [MacStadium](https://www.macstadium.com) for giving us access to Apple Silicon hardware.
+Many thanks to [MacStadium](https://www.macstadium.com) for giving us access to Apple Silicon hardware.
+Without their help it would be close to impossible to set up CI for enabling full M1 support in our toolchain.
 
 Additionally, we'd like to thank everyone who contributed their work and helped us make this release
 happen. These new releases wouldn't be possible without the hard work of (in alphabetical order):

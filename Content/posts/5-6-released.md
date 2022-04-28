@@ -9,28 +9,26 @@ We're happy to announce the new release of SwiftWasm tracking upstream Swift 5.6
 
 Swift 5.6 enhances the language through a number of proposals from the Swift Evolution process, including:
 
-[SE-0290](https://github.com/apple/swift-evolution/blob/main/proposals/0290-negative-availability.md) - Unavailability Condition
-[SE-0315](https://github.com/apple/swift-evolution/blob/main/proposals/0315-placeholder-types.md) - Type placeholders (formerly, “Placeholder types”)
-[SE-0320](https://github.com/apple/swift-evolution/blob/main/proposals/0320-codingkeyrepresentable.md) - Allow coding of non String / Int keyed Dictionary into a KeyedContainer
-[SE-0322](https://github.com/apple/swift-evolution/blob/main/proposals/0322-temporary-buffers.md) - Temporary uninitialized buffers
-[SE-0324](https://github.com/apple/swift-evolution/blob/main/proposals/0324-c-lang-pointer-arg-conversion.md) - Relax diagnostics for pointer arguments to C functions
-[SE-0331](https://github.com/apple/swift-evolution/blob/main/proposals/0331-remove-sendable-from-unsafepointer.md) - Remove Sendable conformance from unsafe pointer types
-[SE-0335](https://github.com/apple/swift-evolution/blob/main/proposals/0335-existential-any.md) - Introduces existential any
-[SE-0337](https://github.com/apple/swift-evolution/blob/main/proposals/0337-support-incremental-migration-to-concurrency-checking.md) - Incremental migration to concurrency checking
+- [SE-0290](https://github.com/apple/swift-evolution/blob/main/proposals/0290-negative-availability.md) - Unavailability Condition
+- [SE-0315](https://github.com/apple/swift-evolution/blob/main/proposals/0315-placeholder-types.md) - Type placeholders (formerly, “Placeholder types”)
+- [SE-0320](https://github.com/apple/swift-evolution/blob/main/proposals/0320-codingkeyrepresentable.md) - Allow coding of non String / Int keyed Dictionary into a KeyedContainer
+- [SE-0322](https://github.com/apple/swift-evolution/blob/main/proposals/0322-temporary-buffers.md) - Temporary uninitialized buffers
+- [SE-0324](https://github.com/apple/swift-evolution/blob/main/proposals/0324-c-lang-pointer-arg-conversion.md) - Relax diagnostics for pointer arguments to C functions
+- [SE-0331](https://github.com/apple/swift-evolution/blob/main/proposals/0331-remove-sendable-from-unsafepointer.md) - Remove Sendable conformance from unsafe pointer types
+- [SE-0335](https://github.com/apple/swift-evolution/blob/main/proposals/0335-existential-any.md) - Introduces existential any
+- [SE-0337](https://github.com/apple/swift-evolution/blob/main/proposals/0337-support-incremental-migration-to-concurrency-checking.md) - Incremental migration to concurrency checking
 
 ## New JavaScriptKit runtime
 
 The 0.14 release is a breaking release that enables full support for SwiftWasm 5.6 and lays groundwork for future updates to [DOMKit](https://github.com/swiftwasm/DOMKit/).
 
-Specifically:
-
-- The `ConvertibleToJSValue` conformance on `Array` and `Dictionary` has been swapped from the `== ConvertibleToJSValue` case to the `: ConvertibleToJSValue` case.
-  - This means that e.g. `[String]` is now `ConvertibleToJSValue`, but `[ConvertibleToJSValue]` no longer conforms.
-  - the `jsValue()` method still works in both cases.
-  - to adapt existing code, use one of these approaches:
-    - use generics where possible (for single-type arrays)
-    - call `.map { $0.jsValue() }` (or `mapValues`) to get an array/dictionary of `JSValue` which you can then use as `ConvertibleToJSValue`
-    - add `.jsValue` to the end of all of the values in the array/dictionary literal.
+Specifically, the `ConvertibleToJSValue` conformance on `Array` and `Dictionary` has been swapped from the `== ConvertibleToJSValue` case to the `: ConvertibleToJSValue` case.
+- This means that e.g. `[String]` is now `ConvertibleToJSValue`, but `[ConvertibleToJSValue]` no longer conforms.
+- the `jsValue()` method still works in both cases.
+- to adapt existing code, use one of these approaches:
+  - use generics where possible (for single-type arrays)
+  - call `.map { $0.jsValue() }` (or `mapValues`) to get an array/dictionary of `JSValue` which you can then use as `ConvertibleToJSValue`
+  - add `.jsValue` to the end of all of the values in the array/dictionary literal.
 
 ## Carton
 

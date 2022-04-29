@@ -23,6 +23,7 @@ Swift 5.6 enhances the language through a number of proposals from the Swift Evo
 The 0.14 release is a breaking release that enables full support for SwiftWasm 5.6 and lays groundwork for future updates to [DOMKit](https://github.com/swiftwasm/DOMKit/).
 
 Specifically, the `ConvertibleToJSValue` conformance on `Array` and `Dictionary` has been swapped from the `== ConvertibleToJSValue` case to the `: ConvertibleToJSValue` case.
+
 - This means that e.g. `[String]` is now `ConvertibleToJSValue`, but `[ConvertibleToJSValue]` no longer conforms.
 - the `jsValue()` method still works in both cases.
 - to adapt existing code, use one of these approaches:

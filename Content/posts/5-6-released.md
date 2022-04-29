@@ -36,6 +36,10 @@ The 0.14 release uses SwiftWasm 5.6.0 as the default toolchain. Additionally, is
 
 Many thanks to [@kateinoigakukun](https://github.com/kateinoigakukun) for contributions!
 
+## OpenCollective Budget
+
+SwiftWasm is committed to publishing transparent and open finances so we are excited to announce that all expenses and transactions can be viewed publicly on our [OpenCollective](https://opencollective.com/swiftwasm) page.
+
 ## Acknowledgements
 
 We'd like to thank [our sponsors](https://github.com/sponsors/swiftwasm) for their support, which

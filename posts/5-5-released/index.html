@@ -21,8 +21,8 @@ asyncButtonElement.<span class="splash-property">innerText</span> = <span class=
 asyncButtonElement.<span class="splash-property">onclick</span> = .<span class="splash-call">object</span>(<span class="splash-type">JSClosure</span> { <span class="splash-keyword">_ in</span>
     <span class="splash-type">Task</span> {
         <span class="splash-keyword">do</span> {
-            <span class="splash-keyword">let</span> response = <span class="splash-keyword">try</span> await <span class="splash-call">fetch</span>(<span class="splash-string">"https://httpbin.org/uuid"</span>).<span class="splash-property">value</span>
-            <span class="splash-keyword">let</span> json = <span class="splash-keyword">try</span> await <span class="splash-type">JSPromise</span>(response.<span class="splash-call">json</span>().<span class="splash-property">object</span>!)!.value
+            <span class="splash-keyword">let</span> response = <span class="splash-keyword">try await</span> <span class="splash-call">fetch</span>(<span class="splash-string">"https://httpbin.org/uuid"</span>).<span class="splash-property">value</span>
+            <span class="splash-keyword">let</span> json = <span class="splash-keyword">try await</span> <span class="splash-type">JSPromise</span>(response.<span class="splash-call">json</span>().<span class="splash-property">object</span>!)!.value
             <span class="splash-keyword">let</span> parsedResponse = <span class="splash-keyword">try</span> <span class="splash-type">JSValueDecoder</span>().<span class="splash-call">decode</span>(<span class="splash-type">Response</span>.<span class="splash-keyword">self</span>, from: json)
             <span class="splash-call">alert</span>(parsedResponse.<span class="splash-property">uuid</span>)
         } <span class="splash-keyword">catch</span> {

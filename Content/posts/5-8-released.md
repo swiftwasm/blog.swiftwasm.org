@@ -9,7 +9,7 @@ We're happy to announce the new release of SwiftWasm tracking upstream Swift 5.8
 
 Notable WebAssembly-specific changes in this release:
 
-- The toolchain is now available for Ubuntu 22.04 on on `x86_64` architecture. (Note that `aarch64` support is available only for macOS and Ubuntu 20.04 for now.)
+- The toolchain is now available for Ubuntu 22.04 on the `x86_64` architecture. (Note that `aarch64` support is available only for macOS and Ubuntu 20.04 for now.)
 - Support for [Distributed Actors](https://github.com/apple/swift-evolution/blob/main/proposals/0336-distributed-actor-isolation.md) on WebAssembly was added.
 - The `ghcr.io/swiftwasm/swift` Docker image is now based on Ubuntu 22.04 by default for `latest` and `5.8` tags.
 

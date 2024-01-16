@@ -5,9 +5,9 @@ description: SwiftWasm 5.9.1 has been released.
 
 # SwiftWasm 5.9.1 is now available
 
-We're happy to announce the new release of SwiftWasm tracking upstream Swift 5.9!
+We're happy to announce the new release of SwiftWasm tracking upstream Swift 5.9.1!
 
-This is a periodic release of SwiftWasm, which tracks the upstream Swift 5.9 release.
+This is a periodic release of SwiftWasm, which tracks the upstream Swift 5.9.1 release.
 As for changes in upstream Swift 5.9, we recommend referring [to the official
 changelog](https://github.com/apple/swift/blob/swift-5.9.1-RELEASE/CHANGELOG.md#swift-59).
 

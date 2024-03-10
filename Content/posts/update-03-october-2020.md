@@ -70,12 +70,12 @@ is also parsed, reformatted, and highlighted in a nice summary view.
 
 <br />
 
-![Pretty-printed test summary in `carton`](/images/update-03-carton-test-summary.png width=100%)
+<img src="/images/update-03-carton-test-summary.png" alt="Pretty-printed test summary in `carton`" width="100%">
 
 <br />
 <br />
 
-![Pretty-printed test errors in `carton`](/images/update-03-carton-test-errors.png width=100%)
+<img src="/images/update-03-carton-test-errors.png" alt="Pretty-printed test errors in `carton`" width="100%">
 
 <br />
 <br />

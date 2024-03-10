@@ -1,6 +1,5 @@
 import CNAMEPublishPlugin
 import Foundation
-import ImageAttributesPublishPlugin
 import Plot
 import Publish
 import SplashPublishPlugin
@@ -21,14 +20,13 @@ struct Blog: Website {
   var name = "SwiftWasm Blog"
   var description = ""
   var language: Language { .english }
-  var imagePath: Path? { nil }
+  var imagePath: Path? { "images/logo.png" }
 }
 
 // This will generate your website using the built-in Foundation theme:
 try Blog().publish(using: [
   .installPlugin(.splash(withClassPrefix: "splash-")),
   .installPlugin(.generateCNAME(with: "blog.swiftwasm.org")),
-  .installPlugin(.imageAttributes()),
   .copyResources(at: "Images", to: "images"),
   .addMarkdownFiles(),
   .generateHTML(withTheme: .swiftwasm),

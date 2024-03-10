@@ -1,115 +1,103 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "CNAMEPublishPlugin",
-        "repositoryURL": "https://github.com/SwiftyGuerrero/CNAMEPublishPlugin",
-        "state": {
-          "branch": null,
-          "revision": "17bf8912dee5f3639f9956143a38032fca3a9d56",
-          "version": "0.2.0"
-        }
-      },
-      {
-        "package": "Codextended",
-        "repositoryURL": "https://github.com/johnsundell/codextended.git",
-        "state": {
-          "branch": null,
-          "revision": "8d7c46dfc9c55240870cf5561d6cefa41e3d7105",
-          "version": "0.3.0"
-        }
-      },
-      {
-        "package": "Files",
-        "repositoryURL": "https://github.com/johnsundell/files.git",
-        "state": {
-          "branch": null,
-          "revision": "22fe84797d499ffca911ccd896b34efaf06a50b9",
-          "version": "4.1.1"
-        }
-      },
-      {
-        "package": "HTMLString",
-        "repositoryURL": "https://github.com/alexaubry/HTMLString",
-        "state": {
-          "branch": null,
-          "revision": "7fb27bf13771e239c9952507199920dfe1605ca9",
-          "version": "4.0.2"
-        }
-      },
-      {
-        "package": "ImageAttributesPublishPlugin",
-        "repositoryURL": "https://github.com/finestructure/ImageAttributesPublishPlugin",
-        "state": {
-          "branch": null,
-          "revision": "d9c7e5214cea8821a75fa91a35c2667a848e53be",
-          "version": "0.1.1"
-        }
-      },
-      {
-        "package": "Ink",
-        "repositoryURL": "https://github.com/johnsundell/ink.git",
-        "state": {
-          "branch": null,
-          "revision": "bd223a2482449507bd3286cb262c962d32d81e4b",
-          "version": "0.5.0"
-        }
-      },
-      {
-        "package": "Plot",
-        "repositoryURL": "https://github.com/johnsundell/plot.git",
-        "state": {
-          "branch": null,
-          "revision": "61e828949ca6f84071bde65c8fc046cf74b7d1a2",
-          "version": "0.8.0"
-        }
-      },
-      {
-        "package": "Publish",
-        "repositoryURL": "https://github.com/johnsundell/publish.git",
-        "state": {
-          "branch": null,
-          "revision": "e77aab786992350ea92333737fdb3d7cad3ca8fc",
-          "version": "0.7.0"
-        }
-      },
-      {
-        "package": "ShellOut",
-        "repositoryURL": "https://github.com/johnsundell/shellout.git",
-        "state": {
-          "branch": null,
-          "revision": "e1577acf2b6e90086d01a6d5e2b8efdaae033568",
-          "version": "2.3.0"
-        }
-      },
-      {
-        "package": "Splash",
-        "repositoryURL": "https://github.com/johnsundell/splash.git",
-        "state": {
-          "branch": null,
-          "revision": "7f4df436eb78fe64fe2c32c58006e9949fa28ad8",
-          "version": "0.16.0"
-        }
-      },
-      {
-        "package": "SplashPublishPlugin",
-        "repositoryURL": "https://github.com/johnsundell/SplashPublishPlugin.git",
-        "state": {
-          "branch": null,
-          "revision": "34bb50bd83b2a40c63afc35f090c76619dc149ce",
-          "version": "0.1.0"
-        }
-      },
-      {
-        "package": "Sweep",
-        "repositoryURL": "https://github.com/johnsundell/sweep.git",
-        "state": {
-          "branch": null,
-          "revision": "801c2878e4c6c5baf32fe132e1f3f3af6f9fd1b0",
-          "version": "0.4.0"
-        }
+  "pins" : [
+    {
+      "identity" : "cnamepublishplugin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyGuerrero/CNAMEPublishPlugin",
+      "state" : {
+        "revision" : "dab2f15f963578aa08c0dbd90d2b0178e1ee5f90"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "codextended",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnsundell/codextended.git",
+      "state" : {
+        "revision" : "8d7c46dfc9c55240870cf5561d6cefa41e3d7105",
+        "version" : "0.3.0"
+      }
+    },
+    {
+      "identity" : "collectionconcurrencykit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnsundell/collectionConcurrencyKit.git",
+      "state" : {
+        "revision" : "b4f23e24b5a1bff301efc5e70871083ca029ff95",
+        "version" : "0.2.0"
+      }
+    },
+    {
+      "identity" : "files",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnsundell/files.git",
+      "state" : {
+        "revision" : "22fe84797d499ffca911ccd896b34efaf06a50b9",
+        "version" : "4.1.1"
+      }
+    },
+    {
+      "identity" : "ink",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnsundell/ink.git",
+      "state" : {
+        "revision" : "bd223a2482449507bd3286cb262c962d32d81e4b",
+        "version" : "0.5.0"
+      }
+    },
+    {
+      "identity" : "plot",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnsundell/plot.git",
+      "state" : {
+        "revision" : "271926b4413fe868739d99f5eadcf2bd6cd62fb8",
+        "version" : "0.14.0"
+      }
+    },
+    {
+      "identity" : "publish",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnsundell/publish.git",
+      "state" : {
+        "revision" : "1c8ad00d39c985cb5d497153241a2f1b654e0d40",
+        "version" : "0.9.0"
+      }
+    },
+    {
+      "identity" : "shellout",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnsundell/shellout.git",
+      "state" : {
+        "revision" : "e1577acf2b6e90086d01a6d5e2b8efdaae033568",
+        "version" : "2.3.0"
+      }
+    },
+    {
+      "identity" : "splash",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnsundell/splash.git",
+      "state" : {
+        "revision" : "7f4df436eb78fe64fe2c32c58006e9949fa28ad8",
+        "version" : "0.16.0"
+      }
+    },
+    {
+      "identity" : "splashpublishplugin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnsundell/SplashPublishPlugin.git",
+      "state" : {
+        "revision" : "4fe79070f51e288bc8ba31934a3018cbe099d5f7",
+        "version" : "0.2.0"
+      }
+    },
+    {
+      "identity" : "sweep",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnsundell/sweep.git",
+      "state" : {
+        "revision" : "801c2878e4c6c5baf32fe132e1f3f3af6f9fd1b0",
+        "version" : "0.4.0"
+      }
+    }
+  ],
+  "version" : 2
 }

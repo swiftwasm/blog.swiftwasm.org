@@ -1,11 +1,11 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.8
 
 import PackageDescription
 
 let package = Package(
   name: "SwiftWasmBlog",
   platforms: [
-    .macOS(.v10_12),
+    .macOS(.v12),
   ],
   products: [
     .executable(
@@ -14,16 +14,15 @@ let package = Package(
     ),
   ],
   dependencies: [
-    .package(name: "Publish", url: "https://github.com/johnsundell/publish.git", from: "0.7.0"),
-    .package(url: "https://github.com/johnsundell/SplashPublishPlugin.git", from: "0.1.0"),
-    .package(url: "https://github.com/SwiftyGuerrero/CNAMEPublishPlugin", from: "0.1.0"),
-    .package(url: "https://github.com/finestructure/ImageAttributesPublishPlugin", from: "0.1.0"),
+    .package(url: "https://github.com/JohnSundell/Publish.git", from: "0.9.0"),
+    .package(url: "https://github.com/JohnSundell/SplashPublishPlugin.git", from: "0.2.0"),
+    .package(url: "https://github.com/SwiftyGuerrero/CNAMEPublishPlugin", revision: "dab2f15f963578aa08c0dbd90d2b0178e1ee5f90"),
   ],
   targets: [
-    .target(
+    .executableTarget(
       name: "SwiftWasmBlog",
       dependencies: [
-        "Publish", "SplashPublishPlugin", "CNAMEPublishPlugin", "ImageAttributesPublishPlugin",
+        "Publish", "SplashPublishPlugin", "CNAMEPublishPlugin",
       ]
     ),
   ]

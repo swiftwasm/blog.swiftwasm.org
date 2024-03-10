@@ -16,7 +16,7 @@ jobs:
       - run: swift run SwiftWasmBlog
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: Output
 
   deploy:
     runs-on: ubuntu-latest

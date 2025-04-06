@@ -1,5 +1,5 @@
 ---
-date: 2024-11-21 10:10
+date: 2025-04-07 10:10
 description: SwiftWasm 6.1.0 has been released.
 ---
 

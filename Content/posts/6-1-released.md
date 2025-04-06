@@ -1,9 +1,9 @@
 ---
 date: 2025-04-07 10:10
-description: SwiftWasm 6.1.0 has been released.
+description: SwiftWasm 6.1 has been released.
 ---
 
-# SwiftWasm 6.1.0 is now available
+# SwiftWasm 6.1 is now available
 
 We're happy to announce the new release of SwiftWasm tracking upstream Swift 6.1!
 

@@ -40,6 +40,8 @@ Prior to this release, WebAssembly/WASI targets did not have any code coverage s
 
 With this foundation in place, code coverage support is now available in Swift + WebAssembly projects ([Issue #5591](https://github.com/swiftwasm/swift/issues/5591)). You can now use the standard SwiftPM code coverage `--enable-code-coverage` flag to generate coverage data and LLVM tools to process them.
 
+For detailed instructions, check out our [code coverage guide](https://book.swiftwasm.org/getting-started/testing.html#code-coverage-with-swiftpm).
+
 <img src="/images/6.1-release-coverage-support.png" alt="HTML report of JavaScriptKit test coverage" width="80%" />
 
 ### VSCode Support
